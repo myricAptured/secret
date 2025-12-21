@@ -1,0 +1,908 @@
+.next-btn {
+    position: absolute;
+    right: -60px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: linear-gradient(90deg, #a259c7 60%, #c7a4f7 100%);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    box-shadow: 0 2px 8px #a259c755;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    z-index: 10;
+}
+.next-btn:hover {
+    background: #7c3aad;
+    transform: translateY(-50%) scale(1.08);
+    box-shadow: 0 4px 16px #a259c7a0;
+}
+.arrow-icon {
+    display: inline-block;
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 1;
+    margin-left: 2px;
+}
+.letter-page {
+    position: relative;
+}
+.songs-view {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    background: none;
+}
+
+.songs-card {
+    background: rgba(255,255,255,0.95);
+    border-radius: 18px;
+    box-shadow: 0 6px 32px rgba(0,0,0,0.18);
+    padding: 32px 28px 24px 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 320px;
+    max-width: 90vw;
+    text-align: center;
+}
+
+.songs-title {
+    font-family: 'Dancing Script', 'Playfair Display', cursive, serif;
+    font-size: 2.1rem;
+    color: #7c3aad;
+    margin-bottom: 24px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-align: center;
+}
+
+.songs-yt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.try-again-view {
+    /* ...existing code... */
+    animation: fadeInTryAgain 0.6s cubic-bezier(0.68,-0.55,0.27,1.55);
+}
+
+@keyframes fadeInTryAgain {
+    0% { opacity: 0; transform: scale(0.8); }
+    80% { opacity: 1; transform: scale(1.05); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+.try-again-card {
+    /* ...existing code... */
+    animation: popInCard 0.7s cubic-bezier(0.68,-0.55,0.27,1.55);
+}
+
+@keyframes popInCard {
+    0% { opacity: 0; transform: scale(0.7) translateY(40px); }
+    60% { opacity: 1; transform: scale(1.08) translateY(-8px); }
+    100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.try-again-gif {
+    /* ...existing code... */
+    animation: bounceGif 1.2s cubic-bezier(0.68,-0.55,0.27,1.55);
+}
+
+@keyframes bounceGif {
+    0% { opacity: 0; transform: scale(0.7) rotate(-10deg); }
+    60% { opacity: 1; transform: scale(1.1) rotate(8deg); }
+    100% { opacity: 1; transform: scale(1) rotate(0); }
+}
+
+.try-again-message {
+    /* ...existing code... */
+    animation: fadeInMsg 1.1s 0.2s cubic-bezier(0.68,-0.55,0.27,1.55) backwards;
+}
+
+@keyframes fadeInMsg {
+    0% { opacity: 0; transform: translateY(20px) scale(0.95); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.try-again-btn {
+    /* ...existing code... */
+    animation: fadeInBtn 1.1s 0.4s cubic-bezier(0.68,-0.55,0.27,1.55) backwards;
+}
+
+@keyframes fadeInBtn {
+    0% { opacity: 0; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+.try-again-btn:hover {
+    /* ...existing code... */
+    box-shadow: 0 4px 16px #a259c7a0;
+    letter-spacing: 0.04em;
+}
+.try-again-view {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    background: rgba(255,255,255,0.01);
+    transition: opacity 0.4s;
+}
+
+.try-again-card {
+    background: linear-gradient(135deg, #e1d0f7 60%, #c7a4f7 100%);
+    border-radius: 18px;
+    box-shadow: 0 6px 32px rgba(0,0,0,0.18);
+    border: 3px solid #a259c7;
+    padding: 32px 28px 24px 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 320px;
+    max-width: 90vw;
+    text-align: center;
+}
+
+.try-again-gif {
+    display: block;
+    margin: 0 auto 18px auto;
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 16px;
+    border: 3px solid #c94f7c;
+    background: #fff;
+}
+
+.try-again-message {
+    font-family: 'Quicksand', 'Segoe UI', Arial, sans-serif;
+    font-size: 1.3rem;
+    color: #7c3aad;
+    margin-bottom: 22px;
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+}
+
+.try-again-btn {
+    background: linear-gradient(90deg, #a259c7 60%, #c7a4f7 100%);
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 22px;
+    padding: 12px 36px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    margin-top: 8px;
+}
+.try-again-btn:hover {
+    background: #7c3aad;
+    transform: translateY(-2px) scale(1.04);
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background: linear-gradient(to bottom, #0a0e27, #1a1a3e, #2d1b4e);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 20px;
+}
+
+.aurora {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.aurora::before,
+.aurora::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: 
+        radial-gradient(ellipse at 20% 30%, rgba(255, 0, 128, 0.4) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 20%, rgba(0, 255, 255, 0.3) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 40%, rgba(255, 200, 0, 0.35) 0%, transparent 60%),
+        radial-gradient(ellipse at 40% 60%, rgba(0, 255, 100, 0.3) 0%, transparent 50%);
+    filter: blur(40px);
+    animation: auroraWave 8s ease-in-out infinite;
+}
+
+.aurora::after {
+    background: 
+        radial-gradient(ellipse at 60% 50%, rgba(138, 43, 226, 0.35) 0%, transparent 50%),
+        radial-gradient(ellipse at 30% 60%, rgba(255, 100, 150, 0.3) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 70%, rgba(100, 200, 255, 0.3) 0%, transparent 60%),
+        radial-gradient(ellipse at 10% 80%, rgba(50, 255, 150, 0.25) 0%, transparent 50%);
+    filter: blur(50px);
+    animation: auroraWave 12s ease-in-out infinite reverse;
+}
+
+@keyframes auroraWave {
+    0%, 100% {
+        transform: translateY(0) scaleX(1);
+        opacity: 0.8;
+    }
+    25% {
+        transform: translateY(-20px) scaleX(1.1);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(0) scaleX(0.9);
+        opacity: 0.7;
+    }
+    75% {
+        transform: translateY(20px) scaleX(1.05);
+        opacity: 0.9;
+    }
+}
+
+.content {
+    text-align: center;
+    z-index: 10;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    position: relative;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.content.fade-out {
+    opacity: 0;
+    transform: scale(0.8);
+    pointer-events: none;
+}
+
+.letter-view {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 0;
+    transition: all 1s ease-out;
+    z-index: 5;
+    pointer-events: none;
+    max-height: 90vh;
+    max-width: 95vw;
+    overflow: visible;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+
+.letter-view.show {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    pointer-events: auto;
+}
+
+.merry-christmas {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: white;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+    animation: sparkle 2s ease-in-out infinite;
+    text-align: center;
+}
+
+@keyframes sparkle {
+    0%, 100% {
+        text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 215, 0, 0.6);
+    }
+    50% {
+        text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5), 0 0 30px rgba(255, 215, 0, 0.9), 0 0 40px rgba(255, 215, 0, 0.6);
+    }
+}
+
+.letter-page {
+    background: linear-gradient(to bottom, #e6d9f5, #f0e6ff);
+    width: 650px;
+    max-width: 85vw;
+    padding: 40px 20px;
+    border-radius: 15px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: letterFloat 3s ease-in-out infinite;
+    font-family: 'Playfair Display', serif;
+}
+
+.letter-header {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+}
+}
+
+    font-size: 1.2rem;
+    color: #333;
+    line-height: 1.8;
+    text-align: left;
+    text-shadow: none;
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    
+    .merry-christmas {
+        font-size: 2rem;
+    font-weight: 700;
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 0.02em;
+    .letter-header {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+    margin-top: 30px;
+    font-style: italic;
+    text-align: right;
+    font-family: 'Quicksand', cursive, sans-serif;
+    font-size: 1.1rem;
+    color: #7c3aad;
+        font-size: 1rem;
+    }
+    
+    .letter-content .dear {
+        font-size: 1.2rem;
+    }
+    
+    .question {
+        font-size: 2rem;
+    }
+    
+    .btn-yes, .btn-no {
+        padding: 12px 30px;
+        font-size: 1.1rem;
+    }
+    
+    .envelope-wrapper {
+        width: 240px;
+        height: 154px;
+    }
+    
+    .envelope-body {
+        width: 240px;
+        height: 154px;
+    }
+    
+    .envelope-flap {
+        border-left: 120px solid transparent;
+        border-right: 120px solid transparent;
+        border-top: 77px solid #ff7777;
+    }
+    
+    .envelope-label {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .letter-page {
+        padding: 30px 20px;
+    }
+    
+    .merry-christmas {
+        font-size: 1.5rem;
+    }
+    
+    .letter-content {
+        font-size: 0.9rem;
+    }
+    
+    .question {
+        font-size: 1.5rem;
+    }
+    
+    .buttons {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .btn-yes, .btn-no {
+        width: 100%;
+        max-width: 250px;
+    }
+}
+
+.letter-header {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 30px;
+}
+
+.letter-content {
+    font-size: 1.2rem;
+    color: #333;
+    line-height: 1.8;
+    text-align: left;
+    text-shadow: none;
+}
+
+.letter-content p {
+    margin: 15px 0;
+}
+
+.letter-content .dear {
+    font-weight: bold;
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+}
+
+.letter-content .signature {
+    margin-top: 30px;
+    font-style: italic;
+    text-align: right;
+}
+
+@keyframes letterFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    animation: fadeInDown 1s ease-out;
+}
+
+p {
+    font-size: 1.5rem;
+    animation: fadeInUp 1s ease-out 0.3s backwards;
+}
+
+.envelope-container {
+    margin-bottom: 3rem;
+    animation: fadeInDown 1s ease-out, float 3s ease-in-out infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.envelope-wrapper {
+    position: relative;
+    width: 280px;
+    height: 180px;
+}
+
+.envelope-body {
+    position: absolute;
+    width: 280px;
+    height: 180px;
+    background: linear-gradient(to bottom, #ff5555, #ff4444);
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.envelope-flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 140px solid transparent;
+    border-right: 140px solid transparent;
+    border-top: 90px solid #ff7777;
+    z-index: 2;
+    transform-origin: top center;
+    transition: transform 1.2s ease-in-out;
+}
+
+.hearts-container {
+    position: absolute;
+    width: 100%;
+    height: 300px;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.floating-heart {
+    position: absolute;
+    bottom: 0;
+    animation: floatUpHeart 3s ease-out forwards;
+    opacity: 0;
+}
+
+@keyframes floatUpHeart {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-300px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.envelope-wrapper.opening {
+    animation: bounceEnvelope 1.2s ease-out;
+}
+
+.envelope-wrapper.opening .envelope-flap {
+    transform: rotateX(180deg);
+    border-top-color: #ff5555;
+}
+
+@keyframes bounceEnvelope {
+    0% {
+        transform: scale(1);
+    }
+    30% {
+        transform: scale(1.08);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    70% {
+        transform: scale(1.02);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.envelope-label {
+    background: white;
+    padding: 12px 30px;
+    border-radius: 30px;
+    color: #ff4444;
+    font-weight: bold;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 1;
+}
+
+.question {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    animation: fadeInUp 1s ease-out 0.3s backwards;
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.question.hide {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.buttons {
+    display: flex;
+    gap: 1.5rem;
+    animation: fadeInUp 1s ease-out 0.5s backwards;
+    justify-content: center;
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.buttons.hide {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.btn-yes, .btn-no {
+    padding: 15px 40px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btn-yes {
+    background: linear-gradient(to bottom, #44dd77, #33cc66);
+    color: white;
+}
+
+.btn-no {
+    background: white;
+    color: #333;
+}
+
+.btn-yes:hover, .btn-no:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.btn-yes:active, .btn-no:active {
+    transform: translateY(0);
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.snowflake {
+    position: absolute;
+    top: -10px;
+    color: white;
+    font-size: 1em;
+    font-family: Arial, sans-serif;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+    user-select: none;
+    pointer-events: none;
+    z-index: 1;
+    animation: fall linear infinite;
+}
+
+.page-footer {
+    position: fixed;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: white;
+    font-size: 0.85rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    opacity: 0.8;
+    z-index: 15;
+    width: 100%;
+    padding: 0 20px;
+}
+
+.page-footer p {
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
+    .letter-page {
+        width: 90vw;
+        padding: 40px 25px;
+    }
+    
+    .merry-christmas {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+    }
+    
+    .letter-header {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+    }
+    
+    .letter-content {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+    
+    .letter-content .dear {
+        font-size: 1.2rem;
+    }
+    
+    .page-footer {
+        font-size: 0.75rem;
+        bottom: 10px;
+    }
+    
+    .question {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .btn-yes, .btn-no {
+        padding: 12px 30px;
+        font-size: 1.1rem;
+    }
+    
+    .envelope-wrapper {
+        width: 220px;
+        height: 142px;
+    }
+    
+    .envelope-body {
+        width: 220px;
+        height: 142px;
+    }
+    
+    .envelope-flap {
+        border-left: 110px solid transparent;
+        border-right: 110px solid transparent;
+        border-top: 71px solid #ff7777;
+    }
+    
+    .envelope-label {
+        font-size: 1rem;
+        padding: 10px 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 5px;
+    }
+    
+    .letter-page {
+        padding: 30px 20px;
+        width: 95vw;
+    }
+    
+    .merry-christmas {
+        font-size: 1.4rem;
+        margin-bottom: 15px;
+    }
+    
+    .letter-header {
+        font-size: 2rem;
+        margin-bottom: 15px;
+    }
+    
+    .letter-content {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+    
+    .letter-content p {
+        margin: 10px 0;
+    }
+    
+    .letter-content .dear {
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+    }
+    
+    .letter-content .signature {
+        margin-top: 20px;
+    }
+    
+    .page-footer {
+        font-size: 0.7rem;
+    }
+    
+    .question {
+        font-size: 1.4rem;
+        padding: 0 10px;
+    }
+    
+    .buttons {
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+    }
+    
+    .btn-yes, .btn-no {
+        width: 100%;
+        max-width: 250px;
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+    
+    .envelope-wrapper {
+        width: 180px;
+        height: 116px;
+    }
+    
+    .envelope-body {
+        width: 180px;
+        height: 116px;
+    }
+    
+    .envelope-flap {
+        border-left: 90px solid transparent;
+        border-right: 90px solid transparent;
+        border-top: 58px solid #ff7777;
+    }
+    
+    .envelope-label {
+        font-size: 0.9rem;
+        padding: 8px 20px;
+    }
+    
+    .envelope-container {
+        margin-bottom: 2rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .merry-christmas {
+        font-size: 1.2rem;
+    }
+    
+    .letter-content {
+        font-size: 0.85rem;
+    }
+    
+    .question {
+        font-size: 1.2rem;
+    }
+    
+    .envelope-wrapper {
+        width: 160px;
+        height: 103px;
+    }
+    
+    .envelope-body {
+        width: 160px;
+        height: 103px;
+    }
+    
+    .envelope-flap {
+        border-left: 80px solid transparent;
+        border-right: 80px solid transparent;
+        border-top: 52px solid #ff7777;
+    }
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh) rotate(360deg);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

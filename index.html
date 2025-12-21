@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Quicksand:wght@400;600&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="aurora"></div>
+    <div class="content">
+        <div class="envelope-container">
+            <div class="envelope-wrapper">
+                <div class="envelope-flap"></div>
+                <div class="envelope-body">
+                    <div class="envelope-label">For Ellayssa ❤</div>
+                </div>
+            </div>
+        </div>
+        <h2 class="question">✨ Do you want to open? ✨</h2>
+        <div class="buttons">
+            <button class="btn-yes">YES! ❤</button>
+            <button class="btn-no">NO 😢</button>
+        </div>
+    </div>
+    <div class="letter-view">
+        <h1 class="merry-christmas">🎄 Merry Christmas 🎄</h1>
+        <div class="letter-page">
+            <div class="letter-header"></div>
+            <div class="letter-content">
+                <p class="dear">Dear Ely,</p>
+                <p>Surprise! I hope this brings a smile to your face. 😊</p>
+                <p>As the year comes to an end, I just want to thank you for being such a special part of my life. Merry Christmas! ✨</p>
+                <p>You’ve made this year unforgettable, and you truly mean more to me than words can express. 💖</p>
+                <p>Your happiness matters so much to me, and I’ll always do my best to make you feel loved and cherished.</p>
+                <p>Wishing you a magical and joyful Christmas, filled with all the love and happiness you deserve! 🎄</p>
+                <p class="signature">With love,</p>
+                <p class="signature">Jashmir 💕</p>
+            </div>
+            <button class="next-btn" >
+                <span class="arrow-icon">&#8594;</span>
+            </button>
+        </div>
+        <div class="hearts-container"></div>
+    </div>
+    <div class="songs-view" style="display:none;">
+        <div class="songs-card">
+            <h2 class="songs-title">These songs remind me of you</h2>
+            <div class="songs-yt">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/hKgl5-lkT8U?si=3ZnKRxiJDMDKzLbR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+    <div class="try-again-view" style="display:none;">
+        <div class="try-again-card">
+            <img src="crying-girl-anime.gif" alt="Crying Girl" class="try-again-gif">
+            <div class="try-again-message">Awww... Let's try again, Please..? &gt;︿&lt;</div>
+            <button class="try-again-btn">Again..?</button>
+        </div>
+    </div>
+
+
+
+    <script>
+        function createSnowflake() {
+            const snowflake = document.createElement('div');
+            snowflake.classList.add('snowflake');
+            snowflake.innerHTML = '❄';
+            snowflake.style.left = Math.random() * 100 + 'vw';
+            snowflake.style.animationDuration = Math.random() * 3 + 5 + 's';
+            snowflake.style.opacity = Math.random();
+            snowflake.style.fontSize = Math.random() * 1 + 0.5 + 'em';
+            
+            document.body.appendChild(snowflake);
+            
+            setTimeout(() => {
+                snowflake.remove();
+            }, parseFloat(snowflake.style.animationDuration) * 1000);
+        }
+
+        setInterval(createSnowflake, 200);
+        
+        // Create initial batch of snowflakes
+        for (let i = 0; i < 20; i++) {
+            setTimeout(createSnowflake, i * 100);
+        }
+
+        // Envelope opening animation
+        document.querySelector('.btn-yes').addEventListener('click', function() {
+            const content = document.querySelector('.content');
+            const letterView = document.querySelector('.letter-view');
+            const tryAgainView = document.querySelector('.try-again-view');
+            const envelopeWrapper = document.querySelector('.envelope-wrapper');
+            const envelopeFlap = document.querySelector('.envelope-flap');
+            // Animate envelope opening
+            envelopeWrapper.classList.add('opening');
+            envelopeFlap.style.transform = 'rotateX(180deg)';
+            setTimeout(() => {
+                content.classList.add('fade-out');
+                setTimeout(() => {
+                    letterView.classList.add('show');
+                    // Create floating hearts
+                    for (let i = 0; i < 20; i++) {
+                        setTimeout(() => {
+                            createHeart();
+                        }, i * 150);
+                    }
+                }, 800);
+            }, 900);
+        });
+
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('floating-heart');
+            heart.innerHTML = ['❤️', '💕', '💖', '💗', '💝'][Math.floor(Math.random() * 5)];
+            heart.style.left = (Math.random() * 60 + 20) + '%';
+            heart.style.fontSize = (Math.random() * 1.5 + 1) + 'rem';
+            document.querySelector('.hearts-container').appendChild(heart);
+            setTimeout(() => heart.remove(), 3000);
+        }
+
+        document.querySelector('.btn-no').addEventListener('click', function() {
+            const content = document.querySelector('.content');
+            const tryAgainView = document.querySelector('.try-again-view');
+            content.classList.add('fade-out');
+            setTimeout(() => {
+                content.style.display = 'none';
+                tryAgainView.style.display = 'flex';
+            }, 600);
+        });
+
+        document.querySelector('.try-again-btn').addEventListener('click', function() {
+            const content = document.querySelector('.content');
+            const tryAgainView = document.querySelector('.try-again-view');
+            tryAgainView.style.display = 'none';
+            content.style.display = '';
+            setTimeout(() => {
+                content.classList.remove('fade-out');
+            }, 10);
+        });
+
+        // Next button for songs view
+        // Next button for songs view with transition
+        document.querySelector('.next-btn').addEventListener('click', function() {
+            const letterView = document.querySelector('.letter-view');
+            const songsView = document.querySelector('.songs-view');
+            letterView.style.transition = 'opacity 0.5s, transform 0.5s';
+            letterView.style.opacity = '0';
+            letterView.style.transform = 'translateX(-60px) scale(0.97)';
+            setTimeout(() => {
+                letterView.style.display = 'none';
+                songsView.style.display = 'flex';
+                songsView.style.opacity = '0';
+                songsView.style.transform = 'translateX(60px) scale(0.97)';
+                setTimeout(() => {
+                    songsView.style.transition = 'opacity 0.5s, transform 0.5s';
+                    songsView.style.opacity = '1';
+                    songsView.style.transform = 'translateX(0) scale(1)';
+                }, 10);
+            }, 500);
+        });
+    </script>
+</body>
+</html>        
