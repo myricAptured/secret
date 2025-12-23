@@ -9,6 +9,7 @@
 </head>
 <body>
     <div class="aurora"></div>
+    <div class="sparkles"></div>
     <div class="content">
         <div class="envelope-container">
             <div class="envelope-wrapper">
@@ -30,13 +31,13 @@
             <div class="letter-header"></div>
             <div class="letter-content">
                 <p class="dear">Dear Ely,</p>
-                <p>Surprise! I hope this brings a smile to your face. 😊</p>
+                <p>Surprise! I hope this brings a smile to your face. >.< </p>
                 <p>As the year comes to an end, I just want to thank you for being such a special part of my life. Merry Christmas! ✨</p>
                 <p>You’ve made this year unforgettable, and you truly mean more to me than words can express. 💖</p>
                 <p>Your happiness matters so much to me, and I’ll always do my best to make you feel loved and cherished.</p>
                 <p>Wishing you a magical and joyful Christmas, filled with all the love and happiness you deserve! 🎄</p>
                 <p class="signature">With love,</p>
-                <p class="signature">Jashmir 💕</p>
+                <p class="signature">Jashmir </p>
             </div>
             <button class="next-btn" >
                 <span class="arrow-icon">&#8594;</span>
@@ -44,19 +45,39 @@
         </div>
         <div class="hearts-container"></div>
     </div>
+
     <div class="songs-view" style="display:none;">
-        <div class="songs-card">
-            <h2 class="songs-title">These songs remind me of you</h2>
+        <div class="songs-card" style="position: relative;">
+            <h2 class="songs-title">These song reminds me of you</h2>
             <div class="songs-yt">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/hKgl5-lkT8U?si=3ZnKRxiJDMDKzLbR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/u9raS7-NisU?si=Cs5eE3RaafBGgS4t" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
+            <div class="songs-compliment" style="margin-top: 18px; font-size: 1.15em; color: #a259c7; text-align: center; min-height: 2em; font-family: 'Quicksand', sans-serif;">
+                <span id="songs-compliment"></span>
+            </div>
+            <button class="next-btn songs-next-btn" style="position: absolute; right: -60px; top: 50%; transform: translateY(-50%); background: linear-gradient(90deg, #a259c7 60%, #c7a4f7 100%); color: #fff; border: none; border-radius: 50%; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; font-size: 2rem; box-shadow: 0 2px 8px #a259c755; cursor: pointer; transition: background 0.2s, transform 0.2s, box-shadow 0.2s; z-index: 10;">
+                <span class="arrow-icon">&#8594;</span>
+            </button>
         </div>
     </div>
+
     <div class="try-again-view" style="display:none;">
         <div class="try-again-card">
             <img src="crying-girl-anime.gif" alt="Crying Girl" class="try-again-gif">
             <div class="try-again-message">Awww... Let's try again, Please..? &gt;︿&lt;</div>
             <button class="try-again-btn">Again..?</button>
+        </div>
+    </div>
+
+    <div class="closing-view" style="display:none;">
+        <div class="closing-card">
+            <h2 class="closing-title">Thank you for being you! 💖</h2>
+            <p class="closing-message">
+                Thank you for opening this and for being such a special part of my life.<br>
+                I hope this little surprise made you smile.<br>
+                <span id="compliment"></span>
+            </p>
+            <button class="closing-btn">Close</button>
         </div>
     </div>
 
@@ -142,6 +163,7 @@
 
         // Next button for songs view
         // Next button for songs view with transition
+        // Next button for letter view to songs view
         document.querySelector('.next-btn').addEventListener('click', function() {
             const letterView = document.querySelector('.letter-view');
             const songsView = document.querySelector('.songs-view');
@@ -157,9 +179,86 @@
                     songsView.style.transition = 'opacity 0.5s, transform 0.5s';
                     songsView.style.opacity = '1';
                     songsView.style.transform = 'translateX(0) scale(1)';
+                    // Show compliment below video
+                    const compliments = [
+                        "You have the brightest smile!",
+                        "You make every day better just by being you.",
+                        "Your kindness is truly inspiring.",
+                        "You light up every room you enter.",
+                        "You are more amazing than you realize.",
+                        "You make my heart happy!",
+                        "You are the reason for so many smiles.",
+                        "You are beautiful inside and out.",
+                        "You make the world a better place.",
+                        "You are my favorite person!"
+                    ];
+                    const compliment = compliments[Math.floor(Math.random() * compliments.length)];
+                    document.getElementById('songs-compliment').textContent = compliment;
                 }, 10);
             }, 500);
         });
+        // Next button for songs view (if you want to go to a closing section, add logic here)
+        document.querySelector('.songs-next-btn').addEventListener('click', function() {
+            document.querySelector('.songs-view').style.display = 'none';
+            showClosingView();
+        });
+
+        // Compliment generator and closing view logic
+        function showClosingView() {
+            const compliments = [
+                "You have the brightest smile!",
+                "You make every day better just by being you.",
+                "Your kindness is truly inspiring.",
+                "You light up every room you enter.",
+                "You are more amazing than you realize.",
+                "You make my heart happy!",
+                "You are the reason for so many smiles.",
+                "You are beautiful inside and out.",
+                "You make the world a better place.",
+                "You are my favorite person!"
+            ];
+            const compliment = compliments[Math.floor(Math.random() * compliments.length)];
+            document.getElementById('compliment').textContent = compliment;
+            document.querySelector('.closing-view').style.display = 'flex';
+        }
+        document.querySelector('.closing-btn').addEventListener('click', function() {
+            window.location.reload();
+        });
+
+        // Compliment generator and closing view logic
+        function showClosingView() {
+            const compliments = [
+                "You have the brightest smile!",
+                "You make every day better just by being you.",
+                "Your kindness is truly inspiring.",
+                "You light up every room you enter.",
+                "You are more amazing than you realize.",
+                "You make my heart happy!",
+                "You are the reason for so many smiles.",
+                "You are beautiful inside and out.",
+                "You make the world a better place.",
+                "You are my favorite person!"
+            ];
+            const compliment = compliments[Math.floor(Math.random() * compliments.length)];
+            document.getElementById('compliment').textContent = compliment;
+            document.querySelector('.closing-view').style.display = 'flex';
+        }
+        document.querySelector('.closing-btn').addEventListener('click', function() {
+            document.querySelector('.closing-view').style.display = 'none';
+        });
+        // Sparkles effect
+        function createSparkle() {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+            sparkle.style.left = Math.random() * 100 + 'vw';
+            sparkle.style.top = Math.random() * 100 + 'vh';
+            sparkle.style.animationDuration = (Math.random() * 0.8 + 1.2) + 's';
+            sparkle.style.opacity = Math.random() * 0.5 + 0.5;
+            sparkle.style.transform = `scale(${Math.random() * 0.7 + 0.7})`;
+            document.querySelector('.sparkles').appendChild(sparkle);
+            setTimeout(() => sparkle.remove(), 1500);
+        }
+        setInterval(createSparkle, 120);
     </script>
 </body>
 </html>        
