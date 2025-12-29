@@ -1,3 +1,218 @@
+.chapter2026-section {
+    /* ...existing code... */
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    z-index: 1000;
+    transition: opacity 0.7s cubic-bezier(.68,-0.55,.27,1.55), transform 0.7s cubic-bezier(.68,-0.55,.27,1.55);
+    opacity: 0;
+    pointer-events: none;
+}
+.chapter2026-section.active {
+    /* ...existing code... */
+}
+/* Fireworks canvas always behind 2026 section */
+#fireworks-canvas {
+    z-index: 0 !important;
+    pointer-events: none;
+    position: fixed !important;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+}
+/* Soft overlay for 2026 section for readability */
+.chapter2026-section::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background: none;
+    z-index: 1;
+    pointer-events: none;
+    transition: opacity 0.7s cubic-bezier(.68,-0.55,.27,1.55);
+}
+.chapter2026-section.active::before {
+    opacity: 1;
+}
+.chapter2026-card {
+    position: relative;
+    z-index: 2;
+}
+}
+.chapter2026-section.active {
+    display: flex;
+    opacity: 1;
+    pointer-events: auto;
+    animation: fadeInDown 0.8s cubic-bezier(.68,-0.55,.27,1.55);
+}
+.chapter2026-card {
+    background: rgba(255,255,255,0.92);
+    border-radius: 24px;
+    box-shadow: 0 0 32px 8px #e6d9f7, 0 0 8px 2px #ffe6f0;
+    padding: 2.5em 2em 2em 2em;
+    text-align: center;
+    max-width: 420px;
+    min-width: 320px;
+    width: 100%;
+    box-sizing: border-box;
+    animation: pop-in 0.8s cubic-bezier(.68,-0.55,.27,1.55);
+    position: relative;
+    z-index: 2;
+}
+.chapter2026-response {
+    min-height: 2.5em;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.08em;
+    color: #a259c7;
+    margin-top: 0.5em;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.7s cubic-bezier(.68,-0.55,.27,1.55);
+    word-break: break-word;
+    white-space: pre-line;
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    white-space: normal;
+    margin-left: auto;
+    margin-right: auto;
+}
+.chapter2026-response.visible {
+    opacity: 1;
+    animation: fadeInUp 0.8s cubic-bezier(.68,-0.55,.27,1.55);
+}
+/* Ensure fireworks canvas is always behind the 2026 section */
+#fireworks-canvas {
+    z-index: 0 !important;
+}
+/* 2026 Interactive Section Styles */
+.chapter2026-section {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(120deg, #f8f6ff 0%, #ffe6f0 100%);
+    z-index: 10;
+    transition: opacity 0.7s cubic-bezier(.68,-0.55,.27,1.55), transform 0.7s cubic-bezier(.68,-0.55,.27,1.55);
+    opacity: 0;
+    pointer-events: none;
+}
+.chapter2026-section.active {
+    display: flex;
+    opacity: 1;
+    pointer-events: auto;
+    animation: fadeInDown 0.8s cubic-bezier(.68,-0.55,.27,1.55);
+}
+.chapter2026-card {
+    background: rgba(255,255,255,0.92);
+    border-radius: 24px;
+    box-shadow: 0 0 32px 8px #e6d9f7, 0 0 8px 2px #ffe6f0;
+    padding: 2.5em 2em 2em 2em;
+    text-align: center;
+    max-width: 420px;
+    min-width: 320px;
+    animation: pop-in 0.8s cubic-bezier(.68,-0.55,.27,1.55);
+}
+.chapter2026-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.1em;
+    color: #e75480;
+    margin-bottom: 0.5em;
+    letter-spacing: 0.01em;
+}
+.chapter2026-message {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.15em;
+    color: #a259c7;
+    margin-bottom: 1.7em;
+    line-height: 1.6;
+}
+.chapter2026-options {
+    display: flex;
+    gap: 1.1em;
+    justify-content: center;
+    margin-bottom: 1.5em;
+}
+.chapter2026-option {
+    background: linear-gradient(120deg, #ffe6f0 60%, #e6d9f7 100%);
+    border: none;
+    border-radius: 18px;
+    padding: 1em 1.3em;
+    font-size: 1.1em;
+    font-family: 'Quicksand', sans-serif;
+    color: #e75480;
+    font-weight: 600;
+    box-shadow: 0 2px 8px #e6d9f755;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    outline: none;
+    letter-spacing: 0.01em;
+    position: relative;
+}
+.chapter2026-option:hover, .chapter2026-option.selected {
+    background: linear-gradient(120deg, #e6d9f7 60%, #ffe6f0 100%);
+    color: #a259c7;
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: 0 8px 24px #a259c7a0;
+}
+.chapter2026-response {
+    min-height: 2.5em;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.08em;
+    color: #a259c7;
+    margin-top: 0.5em;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.7s cubic-bezier(.68,-0.55,.27,1.55);
+}
+.chapter2026-response.visible {
+    opacity: 1;
+    animation: fadeInUp 0.8s cubic-bezier(.68,-0.55,.27,1.55);
+}
+/* Typewriter effect for response */
+.typewriter {
+    display: inline-block;
+    border-right: 2px solid #e75480;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: blink-caret 0.8s step-end infinite alternate;
+}
+@keyframes blink-caret {
+    from, to { border-color: #e75480; }
+    50% { border-color: transparent; }
+}
+/* Ready for 2025 Button Styles */
+.btn-ready2025 {
+    background: linear-gradient(90deg, #e75480 60%, #a259c7 100%);
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 30px;
+    padding: 14px 44px;
+    margin-top: 10px;
+    box-shadow: 0 4px 16px #a259c755;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    letter-spacing: 0.04em;
+    outline: none;
+}
+.btn-ready2025:hover {
+    background: linear-gradient(90deg, #a259c7 60%, #e75480 100%);
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: 0 8px 24px #a259c7a0;
+}
+/* Fireworks Canvas Styles */
+#fireworks-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 2;
+}
 /* Closing View Styles */
 .closing-view {
     position: fixed;
@@ -722,18 +937,7 @@ p {
     }
 }
 
-.snowflake {
-    position: absolute;
-    top: -10px;
-    color: white;
-    font-size: 1em;
-    font-family: Arial, sans-serif;
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
-    user-select: none;
-    pointer-events: none;
-    z-index: 1;
-    animation: fall linear infinite;
-}
+
 
 .page-footer {
     position: fixed;
